@@ -3,9 +3,11 @@
 
 	export { className as class };
 	export let small: boolean = false;
+	export let fullWidth: boolean = false;
+	export let secondary: boolean = false;
 </script>
 
-<button class={className} class:small on:click><slot /></button>
+<button class={className} class:fullWidth class:secondary class:small on:click><slot /></button>
 
 <style lang="scss">
 	button {
@@ -34,6 +36,14 @@
 		&.small {
 			font-size: 0.8rem;
 			padding: 0.5rem 0.75rem;
+		}
+
+		&.secondary {
+			background-color: rgba(var(--color-foreground-raw), 0.8);
+		}
+
+		&.fullWidth {
+			width: 100%;
 		}
 		:global(svg) {
 			margin-right: 0.5rem;

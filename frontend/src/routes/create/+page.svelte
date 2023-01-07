@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AutocompleteInput from '$lib/components/Autocomplete.svelte/AutocompleteInput.svelte';
 	import Button from '$lib/components/Button.svelte';
+	import Container from '$lib/components/Container.svelte';
 	import RadioGroup from '$lib/components/RadioGroup/RadioGroup.svelte';
 	import type { RadioOption } from '$lib/components/RadioGroup/types';
 	import Slider from '$lib/components/Slider.svelte';
@@ -26,7 +27,7 @@
 </script>
 
 <br />
-<div class="container">
+<Container>
 	<Stepper bind:currentStep />
 	{#if currentStep === 1}
 		<div in:fly={{ x: -50, duration: 300, delay: 300 }} out:fly={{ x: 50, duration: 300 }}>
@@ -56,15 +57,11 @@
 			<Button on:click={completeStep}>Weiter</Button>
 		</div>
 	{/if}
-</div>
+</Container>
 
 <style lang="scss">
 	.spacer {
 		padding-top: var(--size-12);
-	}
-
-	.container > {
-		width: 100%;
 	}
 
 	section {

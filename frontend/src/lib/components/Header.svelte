@@ -39,7 +39,8 @@
 	header {
 		z-index: 2;
 		width: 100%;
-		position: fixed;
+		position: sticky;
+		top: 0px;
 		display: flex;
 		justify-content: center;
 		align-items: center;

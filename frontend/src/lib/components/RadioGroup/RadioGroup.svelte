@@ -33,6 +33,8 @@
 </div>
 
 <style lang="scss">
+	@use 'sass:math';
+
 	$dot-size: 1.5rem;
 	:root {
 		--color-primary: var(--color-primary);
@@ -95,7 +97,7 @@
 			width: $dot-size * 0.6;
 			height: $dot-size * 0.6;
 			top: ($dot-size * 0.6);
-			left: ($dot-size * 0.6)/2;
+			left: math.div(($dot-size * 0.6), 2);
 			background: var(--color-primary);
 			border: 1px solid var(--color-primary);
 			border-radius: 50%;

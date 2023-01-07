@@ -1,8 +1,7 @@
 <div class="footer-container">
 	<span class="legal">© ComplAI - {new Date().getFullYear()}</span>
 	<div class="menu">
-		<a href="/privacy">Privacy Policy</a>
-		<a href="/uses">Uses</a>
+		<a href="/imprint">Imprint</a>
 	</div>
 </div>
 

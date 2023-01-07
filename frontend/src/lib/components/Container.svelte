@@ -1,4 +1,10 @@
-<div class="container"><slot /></div>
+<script lang="ts">
+	let className: string | undefined = undefined;
+	export { className as class };
+	export let centered = false;
+</script>
+
+<div class={className ?? '' + ' container'} class:centered><slot /></div>
 
 <style lang="scss" global>
 	@import './src/lib/style/app.scss';
@@ -12,6 +18,11 @@
 		:global(> *) {
 			width: 100%;
 			max-width: $max-page-width;
+		}
+
+		&.centered {
+			height: 80vh;
+			justify-content: center;
 		}
 	}
 </style>

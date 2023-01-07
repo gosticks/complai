@@ -9,6 +9,8 @@
 
 /* individual imports */
 @import 'open-props/easings';
+@import 'open-props/easings';
+@import 'open-props/shadows';
 @import 'open-props/aspects';
 @import 'open-props/borders';
 @import 'open-props/animations';
@@ -205,20 +207,24 @@ p {
 input {
 	display: block;
 	width: 100%;
-	background: none;
+	background: rgba(var(--color-foreground-raw), 0);
 	color: inherit;
 	border: none;
-	padding: 0;
+	padding: var(--size-2) var(--size-3);
 	font: inherit;
 	cursor: pointer;
 	font-size: 1.5rem;
 	outline: inherit;
-	border-bottom: 2px solid rgba(var(--color-foreground-raw), 0.1);
+	border: 2px solid rgba(var(--color-foreground-raw), 0.1);
+	border-radius: var(--size-3);
 
 	transition: border 0.2s var(--easing-default);
 
+	&::placeholder {
+		color: rgba(var(--color-foreground-raw), 0.3);
+	}
+
 	&:focus {
 		border-color: var(--color-primary);
-		border-bottom-width: var(--size-1);
 	}
 }

@@ -10,7 +10,7 @@
 		<div class="content">
 			<div>
 				<h1>LEGAL<br />COMPLIANCE<br /> REVOLUTION</h1>
-				<a href="/register"><Button>Jetzt Loslegen</Button></a>
+				<a href="/register"><Button>Try Now</Button></a>
 			</div>
 			<Liquid />
 		</div>
@@ -47,23 +47,39 @@
 		<div class="team-list">
 			<div class="team-member">
 				<div class="avatar">
-					<img src="/wlad.jpeg" />
+					<img src="/nicholas.jpeg" />
 				</div>
+				<span>
+					<h3 class="name">Nicholas</h3>
+					<span>Flutter Dev</span>
+				</span>
 			</div>
 			<div class="team-member">
 				<div class="avatar">
-					<img src="/wlad.jpeg" />
+					<img src="/rayan.jpeg" style="transform:translateY(-10%)" />
 				</div>
+				<span>
+					<h3 class="name">Rayan Siala</h3>
+					<span>Database</span>
+				</span>
 			</div>
 			<div class="team-member">
 				<div class="avatar">
-					<img src="/wlad.jpeg" />
+					<img src="/tobias.jpeg" />
 				</div>
+				<span>
+					<h3 class="name">Tobias Wasner</h3>
+					<span>OpenAI API</span>
+				</span>
 			</div>
 			<div class="team-member">
 				<div class="avatar">
-					<img src="/wlad.jpeg" />
+					<!-- <img src="/oliver.jpeg" /> -->
 				</div>
+				<span>
+					<h3 class="name">Oliver Großkloß</h3>
+					<span>Web Scraping</span>
+				</span>
 			</div>
 			<div class="team-member">
 				<div class="avatar">
@@ -83,6 +99,15 @@
 			> hackathon. We recognized the need for a more efficient and effective way for companies to stay
 			informed on legal changes, and we were determined to create a solution.
 		</p>
+	</section>
+
+	<section>
+		<Card>
+			<h2>Try the BETA</h2>
+			<p>If you have an invitation token for the BETA phase, you can try ComplAI today</p>
+			<br />
+			<a href="/register"><Button>Get Started</Button></a>
+		</Card>
 	</section>
 </Container>
 
@@ -119,6 +144,7 @@
 
 	.hero {
 		width: 100%;
+		margin-top: -5rem;
 		padding-top: var(--size-5) 0;
 		background-color: rgba(var(--color-primary-raw), 0.2);
 

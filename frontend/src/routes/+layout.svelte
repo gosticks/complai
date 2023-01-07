@@ -10,6 +10,9 @@
 	export let data: LayoutData;
 </script>
 
+<svelte:head>
+	<title>ComplAI - comply with the furure</title>
+</svelte:head>
 <div>
 	<Header />
 
@@ -38,6 +41,7 @@
 
 	main {
 		width: 100%;
+		min-height: 80vh;
 	}
 
 	.transition-outer {

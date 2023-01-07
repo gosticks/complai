@@ -120,9 +120,12 @@
 		position: relative;
 		margin: 0;
 		padding: 0;
-		top: 0;
-		width: 297px;
-		border: 1px solid var(--color-foreground-light);
+		top: -11px;
+		border: 2px solid rgba(var(--color-foreground-light-raw), 0.2);
 		background-color: var(--color-background);
+		border-bottom-left-radius: var(--size-3);
+		border-bottom-right-radius: var(--size-3);
+		overflow: hidden;
+		box-shadow: var(--shadow-5);
 	}
 </style>
