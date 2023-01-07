@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let stepCount: number = 4;
-	export let currentStep: number = 2;
-	export let enabledStep: number = 3;
+	export let currentStep: number = 4;
+	export let enabledStep: number = 4;
 
 	const onStepClick = (idx: number) => {
 		if (idx >= enabledStep) {

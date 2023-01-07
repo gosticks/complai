@@ -63,10 +63,8 @@
 		padding-top: var(--size-12);
 	}
 
-	.two-col {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: var(--size-10);
+	.container > {
+		width: 100%;
 	}
 
 	section {

@@ -3,6 +3,8 @@
 	import IconSun from '$lib/icons/sun.svg';
 	import IconHash from '$lib/icons/hash.svg';
 	import Button from './Button.svelte';
+	import HeaderIcon from '$lib/icons/logo-header.svg';
+	import Tag from './Tag.svelte';
 
 	const onToggleDarkMode = () => {
 		const isDarkMode = document.body.classList.contains('dark-mode');
@@ -19,11 +21,15 @@
 
 <header>
 	<div class="inner-head">
-		<a class="logo" href="/">
-			<img src="/logo.svg" width="150" />
-		</a>
-		<nav />
-		<nav class="right" />
+		<nav class="left">
+			<a class="logo" href="/">
+				<HeaderIcon width="180" />
+			</a>
+		</nav>
+		<div />
+		<nav class="right">
+			<Tag>BETA</Tag>
+		</nav>
 	</div>
 </header>
 
@@ -31,7 +37,9 @@
 	@import '$lib/style/app.scss';
 
 	header {
+		z-index: 2;
 		width: 100%;
+		position: fixed;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -41,8 +49,12 @@
 		border-bottom: 1px solid rgba(var(--color-foreground-raw), 0.1);
 	}
 
+	.left {
+		justify-self: flex-start;
+	}
+
 	.right {
-		align-items: flex-end;
+		justify-self: flex-end;
 	}
 
 	.inner-head {
@@ -51,7 +63,7 @@
 		justify-content: space-between;
 		justify-items: center;
 		align-items: center;
-		padding: 1.5rem var(--default-pd) 1rem;
+		padding: 1rem 0;
 
 		width: 100%;
 		max-width: $max-page-width;
@@ -83,7 +95,6 @@
 			align-items: center;
 
 			font-weight: normal;
-			padding: 0 $space-base * 4;
 			text-transform: uppercase;
 			color: var(--color-foreground);
 			cursor: pointer;
@@ -133,12 +144,7 @@
 
 	a.logo {
 		:global(svg) {
-			fill: currentColor;
-			stroke: transparent;
 			transition: fill 0.2 var(--easing-default);
-			&:hover {
-				fill: var(--color-primary);
-			}
 
 			height: 2.8rem;
 			@media (min-width: $breakpoint-medium) {

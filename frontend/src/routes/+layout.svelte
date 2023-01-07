@@ -1,9 +1,11 @@
 <script lang="ts">
-	import Header from '$lib/components/Header.svelte';
+	import 'open-props';
 	import '$lib/style/global.scss';
+	import Header from '$lib/components/Header.svelte';
 
 	import { fly } from 'svelte/transition';
 	import type { LayoutData } from './$types';
+	import Footer from '$lib/components/Footer.svelte';
 
 	export let data: LayoutData;
 </script>
@@ -22,6 +24,7 @@
 			</main>
 		{/key}
 	</div>
+	<Footer />
 </div>
 
 <style lang="scss">
@@ -34,16 +37,17 @@
 	}
 
 	main {
-		max-width: $max-page-width;
 		width: 100%;
 	}
 
 	.transition-outer {
+		width: 100%;
 		/* display: grid;
 		grid-template: 1fr 1fr; */
 	}
 	.transition-inner {
 		/* grid-row: 1;
 		grid-column: 1; */
+		width: 100%;
 	}
 </style>

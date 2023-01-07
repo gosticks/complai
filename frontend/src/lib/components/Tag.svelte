@@ -4,7 +4,7 @@
 
 	type TagType = 'primary' | 'secondary' | 'disabled';
 
-	export let kind: TagType = 'disabled';
+	export let kind: TagType = 'primary';
 
 	const colorForCategory = (type: TagType) => {
 		switch (type) {
@@ -45,7 +45,8 @@
 		white-space: nowrap;
 		padding: 0.3rem 0.75rem;
 		padding: 0.3rem 0.75rem;
-		border-radius: 0.2rem;
+		border-radius: var(--size-2);
+		font-weight: bold;
 		color: rgba(255, 255, 255, 0.6);
 
 		margin-right: 0.75rem;

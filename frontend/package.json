@@ -32,7 +32,10 @@
 		"@bulatdashiev/svelte-slider": "^1.0.3",
 		"@poppanator/sveltekit-svg": "^2.0.2",
 		"@sveltejs/adapter-node": "^1.1.0",
+		"autoprefixer": "^10.4.13",
 		"open-props": "^1.5.3",
+		"postcss": "^8.4.21",
+		"postcss-jit-props": "^1.0.9",
 		"sass": "^1.57.1"
 	}
 }

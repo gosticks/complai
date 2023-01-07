@@ -13,8 +13,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		font-size: 1rem;
-		color: var(--color-background);
+		font-size: 1.25rem;
+		font-weight: bold;
+		color: rgba(var(--color-background-raw), 0.8);
 		outline: none;
 		border: none;
 		text-transform: uppercase;
@@ -22,6 +23,8 @@
 		padding: var(--size-3) var(--size-5);
 		background-color: var(--color-primary);
 		transition: all 0.2s var(--easing-default);
+
+		text-shadow: none !important;
 
 		&:hover  {
 			background-color: rgba(var(--color-primary-raw), 0.5);

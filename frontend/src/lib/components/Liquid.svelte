@@ -30,6 +30,7 @@ Codepen: https://codepen.io/supah/
 </div>
 
 <style lang="scss">
+	@use 'sass:math';
 	$radius: 80px;
 
 	svg {
@@ -49,8 +50,8 @@ Codepen: https://codepen.io/supah/
 		width: $radius;
 		height: $radius;
 		position: absolute;
-		top: calc(50% - #{$radius/2});
-		left: calc(50% - #{$radius/2});
+		top: calc(50% - math.div($radius, 2));
+		left: calc(50% - math.div($radius, 2));
 
 		&:before {
 			background: var(--color-primary);
@@ -117,7 +118,7 @@ Codepen: https://codepen.io/supah/
 
 	@keyframes y-axis-lateral {
 		0% {
-			transform: translateY($radius/5);
+			transform: translateY(math.div($radius, 5));
 		}
 		100% {
 			transform: translateY(-$radius);

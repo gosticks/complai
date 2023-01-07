@@ -1,5 +1,20 @@
-@import 'https://unpkg.com/open-props';
 @import 'app.scss';
+/* the props */
+
+/* optional imports that use the props */
+@import 'open-props/normalize';
+@import 'open-props/buttons';
+
+/* just light or dark themes */
+
+/* individual imports */
+@import 'open-props/easings';
+@import 'open-props/aspects';
+@import 'open-props/borders';
+@import 'open-props/animations';
+@import 'open-props/sizes';
+@import 'open-props/gradients';
+/* see PropPacks for the full list */
 
 html,
 body {
@@ -80,6 +95,12 @@ li {
 
 a {
 	text-decoration: none;
+
+	&.styled {
+		text-decoration: underline;
+		text-underline-offset: var(--size-1);
+		text-decoration-color: var(--color-primary);
+	}
 }
 
 body {
@@ -139,6 +160,8 @@ body {
 	@media screen and (min-width: $breakpoint-medium) {
 		--default-pd: 1.5rem;
 	}
+
+	background-color: var(--color-background);
 }
 
 body {
@@ -154,6 +177,29 @@ h4 {
 	margin-block-end: 0;
 	margin-inline-end: 0;
 	margin-bottom: var(--size-3);
+}
+
+h1 {
+	font-size: 3.5rem;
+}
+
+h2 {
+	font-size: 2.5rem;
+}
+
+h3 {
+	font-size: 1.75rem;
+}
+
+p {
+	font-size: 1.6rem;
+	line-height: 2.6rem;
+	font-weight: 400;
+	letter-spacing: 0.1rem;
+
+	b {
+		color: var(--color-primary);
+	}
 }
 
 input {
@@ -175,10 +221,4 @@ input {
 		border-color: var(--color-primary);
 		border-bottom-width: var(--size-1);
 	}
-}
-
-.container {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-7);
 }
