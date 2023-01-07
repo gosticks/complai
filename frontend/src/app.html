@@ -4,9 +4,23 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
+
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover">
+	<body>
+		<script>
+			(function () {
+				var itemKey = 'isDarkMode';
+				if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem(itemKey) !== null) {
+					var isDarkMode = sessionStorage.getItem(itemKey) === 'true';
+					if (isDarkMode) {
+						document.body.classList.add('dark-mode');
+					} else {
+						document.body.classList.add('light-mode');
+					}
+				}
+			})();
+		</script>
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

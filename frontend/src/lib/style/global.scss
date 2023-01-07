@@ -1,0 +1,116 @@
+@import 'https://unpkg.com/open-props';
+@import 'app.scss';
+
+html,
+body {
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	transition: background-color 0.2s var(--easing-default), color 0.05s var(--easing-default);
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: 'Karla';
+	src: url('/fonts/karla-regular-webfont.woff2') format('woff2'),
+		url('/fonts/karla-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Karla';
+	src: url('/fonts/karla-bold-webfont.woff2') format('woff2'),
+		url('/fonts/karla-bold-webfont.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+
+body {
+	height: 100%;
+	font-size: 100%;
+	line-height: 1.5;
+	color: var(--color-foreground);
+	background-color: var(--color-background);
+	font-family: 'Karla', Helvetica, sans-serif;
+	font-style: normal;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	@media (min-width: $breakpoint-small) {
+		font-size: 125%;
+	}
+
+	@media (min-width: $breakpoint-huge) {
+		font-size: 145%;
+	}
+}
+
+p {
+	color: var(--color-foreground-light);
+}
+
+li {
+	font-size: inherit;
+}
+
+body {
+	--color-dark: #131110;
+	--color-light: #fff;
+	--color-light-raw: #fff;
+	--color-primary: rgb(82, 188, 131); //#005F6A;
+	--color-secondary: #72ecfa;
+
+	--radius-default: 3px;
+
+	--breakpoint-tiny: 480px;
+	--breakpoint-small: 730px;
+	--breakpoint-medium: 1200px;
+	--breakpoint-large: 1600px;
+	--breakpoint-huge: 2200px;
+
+	--spacing-content: 5rem;
+	--spacing-mobile: 1.5rem;
+
+	--color-foreground-raw: 19, 17, 16;
+	--color-foreground-light-raw: 33, 30, 28;
+
+	--color-background-raw: 243, 243, 243;
+	--color-background-light-raw: 238, 238, 238;
+	--color-background: rgb(var(--color-background-raw));
+	--color-foreground: rgb(var(--color-foreground-raw));
+	--color-background-light: rgb(var(--color-background-light-raw));
+	--color-foreground-light: rgb(var(--color-foreground-light-raw));
+
+	@media (prefers-color-scheme: dark) {
+		&:not(.light-mode) {
+			--color-background-raw: 10, 13, 14;
+			--color-background-light-raw: 15, 19, 21;
+			--color-foreground-raw: 243, 243, 243;
+			--color-foreground-light-raw: 191, 191, 191;
+
+			--color-background: rgb(var(--color-background-raw));
+			--color-foreground: rgb(var(--color-foreground-raw));
+			--color-background-light: rgb(var(--color-background-light-raw));
+			--color-foreground-light: rgb(var(--color-foreground-light-raw));
+		}
+	}
+
+	*::selection {
+		background: var(--color-primary);
+		color: var(--color-light);
+	}
+
+	--easing-default: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+	--default-pd: 1.5rem;
+	--spacing-small: 0.5rem;
+	--spacing-medium: 1rem;
+	--spacing-large: 3rem;
+	@media screen and (min-width: $breakpoint-medium) {
+		--default-pd: 1.5rem;
+	}
+}

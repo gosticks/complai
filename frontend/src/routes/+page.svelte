@@ -1,5 +1,12 @@
+<script>
+	import Card from '$lib/components/Card.svelte';
+</script>
+
 <div>
-	<img src="/logo.svg" width="400" />
+	<Card>
+		<p>Test</p>
+		<img src="/logo.svg" width="400" />
+	</Card>
 </div>
 
 <style global>
