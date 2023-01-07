@@ -78,11 +78,16 @@ li {
 	font-size: inherit;
 }
 
+a {
+	text-decoration: none;
+}
+
 body {
 	--color-dark: #131110;
 	--color-light: #fff;
 	--color-light-raw: #fff;
 	--color-primary: rgb(82, 188, 131); //#005F6A;
+	--color-primary-raw: 82, 188, 131; //#005F6A;
 	--color-secondary: #72ecfa;
 
 	--radius-default: 3px;
@@ -99,8 +104,8 @@ body {
 	--color-foreground-raw: 19, 17, 16;
 	--color-foreground-light-raw: 33, 30, 28;
 
-	--color-background-raw: 243, 243, 243;
-	--color-background-light-raw: 238, 238, 238;
+	--color-background-raw: 250, 250, 250;
+	--color-background-light-raw: 250, 250, 250;
 	--color-background: rgb(var(--color-background-raw));
 	--color-foreground: rgb(var(--color-foreground-raw));
 	--color-background-light: rgb(var(--color-background-light-raw));
@@ -138,4 +143,42 @@ body {
 
 body {
 	font-family: 'Manrope';
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin-top: var(--size-0);
+	padding: 0;
+	margin-block-end: 0;
+	margin-inline-end: 0;
+	margin-bottom: var(--size-3);
+}
+
+input {
+	display: block;
+	width: 100%;
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	font-size: 1.5rem;
+	outline: inherit;
+	border-bottom: 2px solid rgba(var(--color-foreground-raw), 0.1);
+
+	transition: border 0.2s var(--easing-default);
+
+	&:focus {
+		border-color: var(--color-primary);
+		border-bottom-width: var(--size-1);
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-7);
 }

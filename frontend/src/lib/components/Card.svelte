@@ -1,15 +1,21 @@
-<script lang="ts"></script>
+<script lang="ts">
+	export let background: boolean = true;
+</script>
 
-<div class="card"><slot /></div>
+<div class="card" class:background><slot /></div>
 
 <style lang="scss">
 	.card {
-		border-radius: var(--radius-2);
 		padding: var(--size-fluid-3);
-		box-shadow: var(--shadow-3);
 
-		&:hover {
-			box-shadow: var(--shadow-6);
+		&.background {
+			background-color: var(--color-background-light);
+			border-radius: var(--radius-4);
+			box-shadow: var(--shadow-5);
+
+			&:hover {
+				box-shadow: var(--shadow-6);
+			}
 		}
 
 		@media (--motionOK) {

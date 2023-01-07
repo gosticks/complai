@@ -29,6 +29,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@bulatdashiev/svelte-slider": "^1.0.3",
+		"@poppanator/sveltekit-svg": "^2.0.2",
+		"@sveltejs/adapter-node": "^1.1.0",
 		"open-props": "^1.5.3",
 		"sass": "^1.57.1"
 	}
