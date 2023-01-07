@@ -13,20 +13,41 @@ body {
 	box-sizing: border-box;
 }
 
+/* manrope-200 - latin */
 @font-face {
-	font-family: 'Karla';
-	src: url('/fonts/karla-regular-webfont.woff2') format('woff2'),
-		url('/fonts/karla-regular-webfont.woff') format('woff');
-	font-weight: normal;
+	font-family: 'Manrope';
 	font-style: normal;
+	font-weight: 200;
+	src: url('/fonts/manrope-v13-latin-200.eot'); /* IE9 Compat Modes */
+	src: local(''), url('/fonts/manrope-v13-latin-200.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */ url('/fonts/manrope-v13-latin-200.woff2') format('woff2'),
+		/* Super Modern Browsers */ url('/fonts/manrope-v13-latin-200.woff') format('woff'),
+		/* Modern Browsers */ url('/fonts/manrope-v13-latin-200.ttf') format('truetype'),
+		/* Safari, Android, iOS */ url('/fonts/manrope-v13-latin-200.svg#Manrope') format('svg'); /* Legacy iOS */
 }
-
+/* manrope-regular - latin */
 @font-face {
-	font-family: 'Karla';
-	src: url('/fonts/karla-bold-webfont.woff2') format('woff2'),
-		url('/fonts/karla-bold-webfont.woff') format('woff');
-	font-weight: bold;
+	font-family: 'Manrope';
 	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/manrope-v13-latin-regular.eot'); /* IE9 Compat Modes */
+	src: local(''), url('/fonts/manrope-v13-latin-regular.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */ url('/fonts/manrope-v13-latin-regular.woff2') format('woff2'),
+		/* Super Modern Browsers */ url('/fonts/manrope-v13-latin-regular.woff') format('woff'),
+		/* Modern Browsers */ url('/fonts/manrope-v13-latin-regular.ttf') format('truetype'),
+		/* Safari, Android, iOS */ url('/fonts/manrope-v13-latin-regular.svg#Manrope') format('svg'); /* Legacy iOS */
+}
+/* manrope-800 - latin */
+@font-face {
+	font-family: 'Manrope';
+	font-style: normal;
+	font-weight: 800;
+	src: url('/fonts/manrope-v13-latin-800.eot'); /* IE9 Compat Modes */
+	src: local(''), url('/fonts/manrope-v13-latin-800.eot?#iefix') format('embedded-opentype'),
+		/* IE6-IE8 */ url('/fonts/manrope-v13-latin-800.woff2') format('woff2'),
+		/* Super Modern Browsers */ url('/fonts/manrope-v13-latin-800.woff') format('woff'),
+		/* Modern Browsers */ url('/fonts/manrope-v13-latin-800.ttf') format('truetype'),
+		/* Safari, Android, iOS */ url('/fonts/manrope-v13-latin-800.svg#Manrope') format('svg'); /* Legacy iOS */
 }
 
 body {
@@ -113,4 +134,8 @@ body {
 	@media screen and (min-width: $breakpoint-medium) {
 		--default-pd: 1.5rem;
 	}
+}
+
+body {
+	font-family: 'Manrope';
 }

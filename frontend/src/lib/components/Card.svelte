@@ -6,10 +6,10 @@
 	.card {
 		border-radius: var(--radius-2);
 		padding: var(--size-fluid-3);
-		box-shadow: var(--shadow-2);
+		box-shadow: var(--shadow-3);
 
 		&:hover {
-			box-shadow: var(--shadow-3);
+			box-shadow: var(--shadow-6);
 		}
 
 		@media (--motionOK) {
