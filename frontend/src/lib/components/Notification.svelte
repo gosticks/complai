@@ -11,16 +11,25 @@
 </Card>
 
 <style lang="scss" global>
+	@import '$lib/style/app.scss';
+
 	:global(.card.notification-card) {
+		padding: var(--size-3) var(--size-5);
 		display: flex;
 		align-items: center;
 		gap: var(--size-5);
-		background-color: #e67d22b6 !important;
+		background-color: transparent !important;
+		border: 3px solid #e67d22 !important;
 		color: #fff;
+		flex-direction: column;
+
+		@media (min-width: $breakpoint-small) {
+			flex-direction: row;
+		}
 
 		:global(p) {
-			color: #fff;
-			font-size: 1.5rem;
+			color: var(--color-foreground);
+			font-size: 1.25rem;
 			opacity: 0.7;
 		}
 
@@ -28,10 +37,12 @@
 		:global(h3),
 		:global(h4) {
 			margin-bottom: 0;
+			color: var(--color-foreground);
+			font-size: 1.75rem;
 		}
 
 		:global(svg) {
-			stroke: #fff;
+			stroke: #e67d22;
 			stroke-width: 1.5px;
 			fill: transparent;
 		}

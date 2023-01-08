@@ -127,7 +127,7 @@
 			<br />
 			<Notification>
 				<h3>This step is still Work in Progress</h3>
-				<p>We will be gathering further location and company present infos here.</p>
+				<p>We will be gathering further location and company information to improve our results.</p>
 			</Notification>
 			<br />
 			<Button on:click={completeStep}>Continue</Button>

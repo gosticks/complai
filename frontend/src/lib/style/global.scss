@@ -99,6 +99,7 @@ a {
 	text-decoration: none;
 
 	&.styled {
+		color: var(--color-primary);
 		text-decoration: underline;
 		text-underline-offset: var(--size-1);
 		text-decoration-color: var(--color-primary);
@@ -159,7 +160,7 @@ body {
 	--spacing-small: 0.5rem;
 	--spacing-medium: 1rem;
 	--spacing-large: 3rem;
-	@media screen and (min-width: $breakpoint-medium) {
+	@media screen and (min-width: $breakpoint-small) {
 		--default-pd: 1.5rem;
 	}
 
@@ -183,22 +184,43 @@ h4 {
 }
 
 h1 {
-	font-size: 3.5rem;
+	font-size: 3rem;
 }
 
 h2 {
-	font-size: 2.5rem;
+	font-size: 1.9rem;
 }
 
 h3 {
-	font-size: 1.75rem;
+	font-size: 1.5rem;
 }
 
 p {
-	font-size: 1.6rem;
-	line-height: 2.6rem;
+	font-size: 1.2rem;
+}
+
+@media (min-width: $breakpoint-small) {
+	h1 {
+		font-size: 3.5rem;
+	}
+
+	h2 {
+		font-size: 2.5rem;
+	}
+
+	h3 {
+		font-size: 1.75rem;
+	}
+
+	p {
+		font-size: 1.6rem;
+		line-height: 2.6rem;
+		letter-spacing: 0.1rem;
+	}
+}
+
+p {
 	font-weight: 400;
-	letter-spacing: 0.1rem;
 
 	b {
 		color: var(--color-primary);

@@ -44,6 +44,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: 0 var(--size-5);
 
 		backdrop-filter: blur(12px);
 		background-color: rgba(var(--color-background-raw), 0.85);
@@ -75,7 +76,7 @@
 			padding: 0;
 
 			gap: 0.25rem;
-			@media (min-width: $breakpoint-medium) {
+			@media (min-width: $breakpoint-small) {
 				gap: var(--default-pd);
 			}
 
@@ -102,8 +103,7 @@
 
 			@media (max-width: $breakpoint-small) {
 				:global(svg) {
-					width: 24px;
-					height: 24px;
+					width: 120px;
 				}
 			}
 
@@ -148,7 +148,7 @@
 			transition: fill 0.2 var(--easing-default);
 
 			height: 2.8rem;
-			@media (min-width: $breakpoint-medium) {
+			@media (min-width: $breakpoint-small) {
 				height: 3.2rem;
 			}
 		}

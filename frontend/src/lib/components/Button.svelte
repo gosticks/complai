@@ -15,7 +15,7 @@
 <style lang="scss">
 	button {
 		cursor: pointer;
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		justify-content: space-between;
 		font-size: 1.25rem;

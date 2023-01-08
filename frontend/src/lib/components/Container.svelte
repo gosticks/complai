@@ -18,13 +18,14 @@
 </div>
 
 <style lang="scss" global>
-	@import './src/lib/style/app.scss';
+	@import '$lib/style/app.scss';
 
 	.container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: var(--size-10);
+		padding: 0 var(--size-5);
 
 		:global(> *) {
 			width: 100%;
@@ -32,8 +33,10 @@
 		}
 
 		&.centered {
-			height: 80vh;
-			justify-content: center;
+			@media (min-width: $breakpoint-small) {
+				height: 80vh;
+				justify-content: center;
+			}
 		}
 	}
 

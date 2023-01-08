@@ -29,12 +29,17 @@
 </div>
 
 <style lang="scss">
+	@import '$lib/style/app.scss';
 	.stepper {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: var(--size-4);
 		user-select: none;
+		gap: var(--size-2);
+
+		@media (min-width: $breakpoint-small) {
+			gap: var(--size-4);
+		}
 	}
 
 	.step {
@@ -46,6 +51,7 @@
 		align-items: center;
 		justify-content: center;
 		font-weight: bold;
+		flex-shrink: 0;
 		border: 2px solid rgba(var(--color-foreground-raw), 0.2);
 		color: rgba(var(--color-foreground-raw), 0.2);
 		transition: all 0.2s var(--easing-default);

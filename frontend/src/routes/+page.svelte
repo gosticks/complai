@@ -56,7 +56,7 @@
 			</div>
 			<div class="team-member">
 				<div class="avatar">
-					<img src="/rayan.jpeg" style="transform:translateY(-10%)" />
+					<img src="/rayan.jpeg" style="margin-top: -15%;" />
 				</div>
 				<span>
 					<h3 class="name">Rayan Siala</h3>
@@ -74,7 +74,7 @@
 			</div>
 			<div class="team-member">
 				<div class="avatar">
-					<!-- <img src="/oliver.jpeg" /> -->
+					<img src="/oliver.jpeg" />
 				</div>
 				<span>
 					<h3 class="name">Oliver Großkloß</h3>
@@ -112,23 +112,35 @@
 </Container>
 
 <style lang="scss">
+	@import '$lib/style/app.scss';
+
 	.spacer-m {
 		margin-bottom: var(--spacing-large);
 	}
 
 	.team-list {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
 		justify-content: space-between;
 		gap: var(--size-9);
+		grid-template-columns: 1fr;
+
+		@media (min-width: 400px) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media (min-width: $breakpoint-small) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
 	}
 
 	.team-member {
 		.avatar {
+			display: inline-block;
+			text-align: center;
 			aspect-ratio: var(--ratio-square);
 			overflow: hidden;
 			border-radius: var(--radius-round);
 			margin-bottom: var(--size-4);
+			max-width: 250px;
 		}
 
 		.name {
@@ -149,7 +161,11 @@
 		background-color: rgba(var(--color-primary-raw), 0.2);
 
 		h1 {
-			font-size: 5rem;
+			font-size: 2rem;
+
+			@media (min-width: $breakpoint-small) {
+				font-size: 5rem;
+			}
 		}
 
 		:global(.container) {
@@ -158,12 +174,19 @@
 		}
 
 		.content {
-			margin-top: var(--size-10);
 			display: flex;
-			gap: var(--size-12);
-			flex-direction: row;
-			justify-content: flex-start;
+			margin-top: var(--size-10);
+
+			flex-direction: column-reverse;
 			align-items: center;
+			justify-content: center;
+			text-align: center;
+			@media (min-width: $breakpoint-small) {
+				text-align: left;
+				justify-content: flex-start;
+				gap: var(--size-12);
+				flex-direction: row;
+			}
 		}
 	}
 </style>

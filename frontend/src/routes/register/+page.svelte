@@ -49,10 +49,18 @@
 </Container>
 
 <style lang="scss">
+	@import '$lib/style/app.scss';
+
 	.two-col {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: var(--size-10);
+
+		gap: var(--size-5);
+		grid-template-columns: 1fr;
+
+		@media (min-width: $breakpoint-small) {
+			gap: var(--size-10);
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 
 	section {
