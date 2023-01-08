@@ -40,7 +40,7 @@
 	.loading-overlay {
 		position: absolute;
 		top: 0;
-		left: 25%;
+		left: 17%;
 		bottom: 0;
 
 		display: flex;
