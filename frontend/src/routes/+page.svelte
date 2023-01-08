@@ -39,7 +39,7 @@
 			informed on the legal landscape.
 		</p>
 		<br />
-		<Button>Download our presentation</Button>
+		<a href="/ComplAI.pdf" rel="_blank"><Button>Download our presentation</Button></a>
 	</section>
 	<section>
 		<h2>Who we are</h2>
