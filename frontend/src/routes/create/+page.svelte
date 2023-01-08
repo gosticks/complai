@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import AutocompleteInput from '$lib/components/Autocomplete.svelte/AutocompleteInput.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import ButtonGroup from '$lib/components/ButtonGroup.svelte';
@@ -62,6 +63,9 @@
 			companyName
 		};
 
+		// Presentation delay to show loader
+		await new Promise((r) => setTimeout(r, 1000));
+
 		// TODO: add correct api response here
 		const response = await fetch('/api/company/register', {
 			method: 'POST',
@@ -75,19 +79,56 @@
 			referrerPolicy: 'no-referrer',
 			body: JSON.stringify(payload) // body data type must match "Content-Type" header
 		});
+
 		return response.json(); // parses JSON response into native JavaScript objects
+	};
+
+	const saveCurrentProgress = () => {
+		const data = {
+			nace,
+			region,
+			size,
+			companyName
+		};
+
+		sessionStorage.setItem('current-company', JSON.stringify(data));
+	};
+
+	const updateGlobalState = () => {
+		// Get previous companies
+		let prev = localStorage.getItem('companies');
+		const parsed = prev && JSON.parse(prev);
+
+		const newState = [
+			{
+				nace,
+				region,
+				size,
+				name: companyName,
+				currentStep
+			},
+			...(parsed ?? [])
+		];
+
+		localStorage.setItem('companies', JSON.stringify(newState));
 	};
 
 	const completeStep = () => {
 		if (currentStep === 4) {
 			loading = true;
+
 			transmitCompanyInfo()
-				.then(() => {})
+				.then(() => {
+					goto('/dashboard');
+				})
 				.finally(() => {
+					goto('/dashboard');
+					updateGlobalState();
 					loading = false;
 				});
 			return;
 		}
+		saveCurrentProgress();
 
 		// Continue to next step
 		// FIXME: perform validation here
@@ -98,6 +139,7 @@
 		if (currentStep === 1) {
 			return;
 		}
+		saveCurrentProgress();
 		currentStep--;
 	};
 </script>

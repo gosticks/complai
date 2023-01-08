@@ -28,7 +28,7 @@
 		</nav>
 		<div />
 		<nav class="right">
-			<Tag>BETA</Tag>
+			<Tag>ALPHA v0.3</Tag>
 		</nav>
 	</div>
 </header>

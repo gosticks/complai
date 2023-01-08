@@ -24,7 +24,7 @@
 <Container centered>
 	<Notification outline>
 		<h3>There is currently no public access</h3>
-		<p>While we are still in BETA you need an Invitation Code to register</p>
+		<p>While we are still in ALPHA you need an Invitation Code to register</p>
 	</Notification>
 	<div class="two-col">
 		<Card>

@@ -49,6 +49,8 @@
 		font-weight: bold;
 		color: rgba(255, 255, 255, 0.6);
 
-		margin-right: 0.75rem;
+		&:not(:last-child) {
+			margin-right: 0.75rem;
+		}
 	}
 </style>

@@ -103,8 +103,8 @@
 
 	<section>
 		<Card>
-			<h2>Try the BETA</h2>
-			<p>If you have an invitation token for the BETA phase, you can try ComplAI today</p>
+			<h2>Try the ALPHA</h2>
+			<p>If you have an invitation token for the ALPHA phase, you can try ComplAI today</p>
 			<br />
 			<a href="/register"><Button>Get Started</Button></a>
 		</Card>

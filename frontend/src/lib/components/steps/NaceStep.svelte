@@ -27,9 +27,7 @@
 		let code = nace!.split(' ')[0];
 
 		// Find matching entry
-
 		selectedNace = naceOptions.find((nace) => nace.code === code);
-		console.log(selectedNace, nace);
 	};
 </script>
 
