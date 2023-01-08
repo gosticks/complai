@@ -18,6 +18,7 @@
 	let nace: NaceEntry | undefined = undefined;
 	let region: string | undefined = undefined;
 	let size: string | undefined = undefined;
+	let companyName: string | undefined = undefined;
 
 	let currentStep: number = 1;
 
@@ -56,7 +57,8 @@
 		const payload = {
 			nace,
 			region,
-			size
+			size,
+			companyName
 		};
 
 		// TODO: add correct api response here
@@ -117,6 +119,12 @@
 	{:else if currentStep === 4}
 		<div in:fly={{ x: -50, duration: 300, delay: 300 }} out:fly={{ x: 50, duration: 300 }}>
 			<h2>Further company Information</h2>
+			<label>
+				<span>Company Name</span>
+				<input type="text" placeholder="Company Name" bind:value={companyName} />
+			</label>
+			<br />
+			<br />
 			<Notification>
 				<h3>This step is still Work in Progress</h3>
 				<p>We will be gathering further location and company present infos here.</p>

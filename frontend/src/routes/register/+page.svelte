@@ -1,10 +1,22 @@
-<script>
+<script lang="ts">
+	import { goto } from '$app/navigation';
 	import Button from '$lib/components/Button.svelte';
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
 	import Input from '$lib/components/Input.svelte';
 	import Liquid from '$lib/components/Liquid.svelte';
 	import Notification from '$lib/components/Notification.svelte';
+
+	let email: string | undefined = undefined;
+	let code: string | undefined = undefined;
+
+	const onRegister = (evt: MouseEvent) => {
+		if (!email || !code) {
+			evt.preventDefault();
+			evt.stopPropagation();
+			return;
+		}
+	};
 </script>
 
 <Container centered>
@@ -17,9 +29,9 @@
 			<form>
 				<section>
 					<h2>Register</h2>
-					<input placeholder="E-Mail" />
-					<input placeholder="Einladungs-Code" type="password" />
-					<a href="/create"><Button>Register</Button></a>
+					<input placeholder="E-Mail" bind:value={email} />
+					<input placeholder="Einladungs-Code" type="password" bind:value={code} />
+					<a href="/dashboard" on:click={onRegister}><Button>Register</Button></a>
 				</section>
 			</form>
 		</Card>
