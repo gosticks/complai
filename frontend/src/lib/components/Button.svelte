@@ -14,6 +14,7 @@
 
 <style lang="scss">
 	button {
+		position: relative;
 		cursor: pointer;
 		display: inline-flex;
 		align-items: center;
@@ -41,6 +42,25 @@
 			color: var(--color-light);
 		}
 
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: calc(var(--size-2) * -1);
+			top: calc(var(--size-2) * -1);
+			right: calc(var(--size-2) * -1);
+			bottom: calc(var(--size-2) * -1);
+			background-color: rgba(var(--color-primary-raw), 0.5);
+			border-radius: var(--size-4);
+			z-index: -1;
+			transition: transform 0.2s var(--easing-default);
+			transform: scale(0.8);
+		}
+
+		&:active:before {
+			transform: scale(1);
+		}
+
 		&.small {
 			font-size: 0.8rem;
 			padding: 0.5rem 0.75rem;
@@ -54,7 +74,10 @@
 			width: 100%;
 		}
 		:global(svg) {
+			stroke: rgba(var(--color-background-raw), 0.8);
+			stroke-width: 2px;
 			margin-right: 0.5rem;
+			margin-left: -0.5rem;
 		}
 	}
 </style>

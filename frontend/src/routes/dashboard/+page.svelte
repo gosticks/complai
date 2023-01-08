@@ -1,14 +1,18 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import Card from '$lib/components/Card.svelte';
+	import IconPlus from '$lib/icons/plus.svg';
 	import Container from '$lib/components/Container.svelte';
 	import type { NaceEntry } from '$lib/components/steps/types';
 	import { onMount } from 'svelte';
+	import ButtonGroup from '$lib/components/ButtonGroup.svelte';
 
 	type Company = {
 		name: string;
 		nace: NaceEntry;
 	};
+
+	let email: string = '';
 
 	let registeredCompanies: Company[] = [];
 	let updateFinished = true;
@@ -49,6 +53,8 @@
 	};
 
 	onMount(() => {
+		email = localStorage.getItem('email') ?? '';
+		console.log(email);
 		updateCompanyData().finally(() => {
 			updateFinished = true;
 		});
@@ -64,6 +70,9 @@
 	<section>
 		<br />
 		<h1>Dashboard</h1>
+		{#if email}<p>Welcomde <b>{email}</b></p>{/if}
+		<br />
+		<br />
 		{#if registeredCompanies.length === 0}
 			<Card
 				><h3>Create your first company</h3>
@@ -71,6 +80,9 @@
 			>
 		{/if}
 		{#each registeredCompanies as { nace, name }}{/each}
-		<a href="/create"><Button>Add Company</Button></a>
+		<br />
+		<ButtonGroup>
+			<a href="/create"><Button><IconPlus /> Add Company</Button></a>
+		</ButtonGroup>
 	</section>
 </Container>

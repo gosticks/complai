@@ -19,6 +19,8 @@
 		cursor: pointer;
 		background-color: transparent;
 
+		max-inline-size: unset;
+
 		&:last-child {
 			border-bottom: 0;
 		}

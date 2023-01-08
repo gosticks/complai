@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AutocompleteInput from '$lib/components/Autocomplete.svelte/AutocompleteInput.svelte';
 	import Button from '$lib/components/Button.svelte';
+	import ButtonGroup from '$lib/components/ButtonGroup.svelte';
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
 	import Notification from '$lib/components/Notification.svelte';
@@ -92,6 +93,13 @@
 		// FIXME: perform validation here
 		currentStep++;
 	};
+
+	const back = () => {
+		if (currentStep === 1) {
+			return;
+		}
+		currentStep--;
+	};
 </script>
 
 <br />
@@ -101,20 +109,29 @@
 		<div in:fly={{ x: -50, duration: 300, delay: 300 }} out:fly={{ x: 50, duration: 300 }}>
 			<NaceStep bind:selectedNace={nace}>
 				<br />
-				<Button disabled={!nace} on:click={completeStep}>Continue</Button>
+				<ButtonGroup>
+					<a href="/dashboard"><Button secondary>Cancel</Button></a>
+					<Button disabled={!nace} on:click={completeStep}>Continue</Button>
+				</ButtonGroup>
 			</NaceStep>
 		</div>
 	{:else if currentStep === 2}
 		<div in:fly={{ x: -50, duration: 300, delay: 300 }} out:fly={{ x: 50, duration: 300 }}>
 			<h2>Select Region of operation</h2>
 			<RadioGroup flexDirection="row" bind:userSelected={region} options={regionOptions} />
-			<Button disabled={!region} on:click={completeStep}>Continue</Button>
+			<ButtonGroup>
+				<Button secondary on:click={back}>Back</Button>
+				<Button disabled={!region} on:click={completeStep}>Continue</Button>
+			</ButtonGroup>
 		</div>
 	{:else if currentStep === 3}
 		<div in:fly={{ x: -50, duration: 300, delay: 300 }} out:fly={{ x: 50, duration: 300 }}>
 			<h2>Number of Employees</h2>
 			<RadioGroup flexDirection="row" bind:userSelected={size} options={employeeOptions} />
-			<Button disabled={!region} on:click={completeStep}>Continue</Button>
+			<ButtonGroup>
+				<Button secondary on:click={back}>Back</Button>
+				<Button disabled={!region} on:click={completeStep}>Continue</Button>
+			</ButtonGroup>
 		</div>
 	{:else if currentStep === 4}
 		<div in:fly={{ x: -50, duration: 300, delay: 300 }} out:fly={{ x: 50, duration: 300 }}>
@@ -130,14 +147,23 @@
 				<p>We will be gathering further location and company information to improve our results.</p>
 			</Notification>
 			<br />
-			<Button on:click={completeStep}>Continue</Button>
+			<ButtonGroup>
+				<Button on:click={completeStep}>Continue</Button>
+			</ButtonGroup>
 		</div>
 	{/if}
 </Container>
 
 <style lang="scss">
+	@import '$lib/style/app.scss';
 	.spacer {
-		padding-top: var(--size-12);
+		padding-top: var(--size-4);
+		@media (min-width: $breakpoint-small) {
+			padding-top: var(--size-12);
+		}
+	}
+
+	.step-actions {
 	}
 
 	section {

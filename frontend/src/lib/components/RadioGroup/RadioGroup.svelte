@@ -21,7 +21,6 @@
 	role="radiogroup"
 	class="group-container"
 	aria-labelledby={`label-${uniqueID}`}
-	style="font-size:{fontSize}px; flex-direction:{flexDirection}"
 	id={`group-${uniqueID}`}
 >
 	{#each options as { value, label, icon }}
@@ -38,6 +37,8 @@
 <style lang="scss">
 	@use 'sass:math';
 
+	@import '$lib/style/app.scss';
+
 	$dot-size: 1.5rem;
 
 	:global(.radio-wrap) {
@@ -46,7 +47,6 @@
 		align-items: center;
 		font-size: 1.5rem;
 		border: 5px solid var(--color-background) !important;
-		aspect-ratio: var(--ratio-square);
 
 		.icon {
 			font-size: 4rem;
@@ -60,7 +60,11 @@
 	.group-container {
 		border-radius: 2px;
 		display: flex;
-		flex-direction: row;
+
+		flex-direction: column;
+		@media (min-width: $breakpoint-small) {
+			flex-direction: row;
+		}
 		align-items: center;
 		justify-content: center;
 		gap: var(--size-4);
@@ -70,6 +74,8 @@
 		font-weight: bold;
 	}
 	label {
+		width: 100%;
+		display: block;
 		cursor: pointer;
 		user-select: none;
 		display: flex;
@@ -77,6 +83,10 @@
 		justify-content: flex-start;
 
 		margin-bottom: var(--size-4);
+
+		:global(.card) {
+			width: 100%;
+		}
 	}
 
 	.sr-only {
@@ -92,34 +102,6 @@
 	input[type='radio'] {
 		position: relative;
 
-		& + label::before {
-			content: '';
-			position: relative;
-			display: inline-block;
-			margin-right: 0.75rem;
-			width: $dot-size;
-			height: $dot-size;
-			background: transparent;
-			border: 3px solid var(--color-foreground);
-			border-radius: 50%;
-			top: 0.2em;
-		}
-
-		& + label::after {
-			content: '';
-			position: absolute;
-			display: block;
-			width: $dot-size * 0.6;
-			height: $dot-size * 0.6;
-			top: ($dot-size * 0.6);
-			left: math.div(($dot-size * 0.6), 2);
-			background: var(--color-primary);
-			border: 1px solid var(--color-primary);
-			border-radius: 50%;
-			transition: all 0.2s var(--easing-default);
-			transform: scale(0);
-		}
-
 		&:checked {
 			& + label {
 				font-weight: bold;
@@ -133,11 +115,6 @@
 				transform: scale(1);
 			}
 		}
-	}
-
-	input[type='radio'] input[type='radio']:checked + label::after {
-		opacity: 1;
-		transform: scale(1);
 	}
 
 	input[type='radio']:disabled + label {

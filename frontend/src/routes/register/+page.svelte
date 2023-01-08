@@ -15,10 +15,9 @@
 			evt.preventDefault();
 			evt.stopPropagation();
 
-			localStorage.setItem('email', email ?? '');
-
 			return;
 		}
+		localStorage.setItem('email', email ?? '');
 	};
 </script>
 
