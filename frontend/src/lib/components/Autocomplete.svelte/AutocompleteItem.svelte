@@ -9,13 +9,12 @@
 
 <style lang="scss">
 	li.autocomplete-items {
+		display: block;
 		list-style: none;
 		border-bottom: 1px solid rgba(var(--color-foreground-raw), 0.2);
 		z-index: 99;
 		/*position the autocomplete items to be the same width as the container:*/
-		top: 100%;
-		left: 15px;
-		right: 15px;
+		width: 100%;
 		padding: var(--size-2) var(--size-4);
 		cursor: pointer;
 		background-color: transparent;

@@ -179,6 +179,7 @@ h4 {
 	margin-block-end: 0;
 	margin-inline-end: 0;
 	margin-bottom: var(--size-3);
+	font-weight: bold;
 }
 
 h1 {
@@ -201,6 +202,12 @@ p {
 
 	b {
 		color: var(--color-primary);
+	}
+
+	small {
+		font-size: 1rem;
+		letter-spacing: initial;
+		line-height: initial !important;
 	}
 }
 

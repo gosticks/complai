@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Card from '../Card.svelte';
 	import type { RadioOption } from './types';
 
 	// based on suggestions from:
@@ -23,12 +24,14 @@
 	style="font-size:{fontSize}px; flex-direction:{flexDirection}"
 	id={`group-${uniqueID}`}
 >
-	{#if legend}<div class="legend" id={`label-${uniqueID}`}>{legend}</div>{/if}
-	{#each options as { value, label }}
-		<span class="radio-wrap">
-			<input class="sr-only" type="radio" id={slugify(label)} bind:group={userSelected} {value} />
-			<label for={slugify(label)}> {label} </label>
-		</span>
+	{#each options as { value, label, icon }}
+		<label for={slugify(label)}>
+			<Card class={'radio-wrap' + (value === userSelected ? ' selected' : '')}>
+				<span class="icon">{icon}</span>
+				<input class="sr-only" type="radio" id={slugify(label)} bind:group={userSelected} {value} />
+				{label}
+			</Card>
+		</label>
 	{/each}
 </div>
 
@@ -36,19 +39,31 @@
 	@use 'sass:math';
 
 	$dot-size: 1.5rem;
-	:root {
-		--color-primary: var(--color-primary);
-		--gray: rgba(var(--color-foreground-raw), 0.5);
+
+	:global(.radio-wrap) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		font-size: 1.5rem;
+		border: 5px solid var(--color-background) !important;
+		aspect-ratio: var(--ratio-square);
+
+		.icon {
+			font-size: 4rem;
+		}
 	}
 
-	.radio-wrap {
-		position: relative;
+	:global(.card.selected) {
+		border: 5px solid var(--color-primary) !important;
 	}
 
 	.group-container {
 		border-radius: 2px;
 		display: flex;
 		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: var(--size-4);
 	}
 
 	.legend {

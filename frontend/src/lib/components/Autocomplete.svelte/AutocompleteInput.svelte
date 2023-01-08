@@ -1,19 +1,23 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import AutocompleteItem from './AutocompleteItem.svelte';
 
 	export let options: string[] = ['test-1', 'test-2', 'test-3'];
 	export let placeholder: string | undefined = undefined;
 
+	const dispatch = createEventDispatcher<{ select: string | undefined }>();
+
 	/* FILTERING countres DATA BASED ON INPUT */
 	let filteredCountries: string[] = [];
 	// $: console.log(filteredCountries)
 
-	const filterCountries = () => {
+	const filterNace = () => {
 		let storageArr: string[] = [];
 		if (inputValue) {
 			options.forEach((option) => {
-				if (option.toLowerCase().startsWith(inputValue.toLowerCase())) {
-					storageArr = [...storageArr, makeMatchBold(option)];
+				const matchIndex = option.toLowerCase().indexOf(inputValue.toLowerCase());
+				if (matchIndex !== -1) {
+					storageArr = [...storageArr, makeMatchBold(option, matchIndex)];
 				}
 			});
 		}
@@ -34,25 +38,18 @@
 		searchInput.focus();
 	};
 
-	const setInputVal = (categoryName) => {
+	const setInputVal = (categoryName: string) => {
 		inputValue = removeBold(categoryName);
 		filteredCountries = [];
 		hiLiteIndex = null;
-		document.querySelector('#country-input').focus();
+		document.querySelector('#nace-input').focus();
+
+		dispatch('select', inputValue);
 	};
 
-	const submitValue = () => {
-		if (inputValue) {
-			console.log(`${inputValue} is submitted!`);
-			setTimeout(clearInput, 1000);
-		} else {
-			alert("You didn't type anything.");
-		}
-	};
-
-	const makeMatchBold = (str: string) => {
+	const makeMatchBold = (str: string, start: number) => {
 		// replace part of (country name === inputValue) with strong tags
-		let matched = str.substring(0, inputValue.length);
+		let matched = str.substring(start, start + inputValue.length);
 		let makeBold = `<strong>${matched}</strong>`;
 		let boldedMatch = str.replace(matched, makeBold);
 		return boldedMatch;
@@ -84,31 +81,30 @@
 
 <svelte:window on:keydown={navigateList} />
 
-<form autocomplete="off" on:submit|preventDefault={submitValue}>
-	<div class="autocomplete">
-		<input
-			id="country-input"
-			type="text"
-			{placeholder}
-			bind:this={searchInput}
-			bind:value={inputValue}
-			on:input={filterCountries}
-		/>
-	</div>
+<div class="autocomplete">
+	<input
+		id="nace-input"
+		type="text"
+		autocomplete=""
+		{placeholder}
+		bind:this={searchInput}
+		bind:value={inputValue}
+		on:input={filterNace}
+	/>
+</div>
 
-	<!-- FILTERED LIST OF COUNTRIES -->
-	{#if filteredCountries.length > 0}
-		<ul id="autocomplete-items-list">
-			{#each filteredCountries as country, i}
-				<AutocompleteItem
-					itemLabel={country}
-					highlighted={i === hiLiteIndex}
-					on:click={() => setInputVal(country)}
-				/>
-			{/each}
-		</ul>
-	{/if}
-</form>
+<!-- FILTERED LIST OF COUNTRIES -->
+{#if filteredCountries.length > 0}
+	<ul id="autocomplete-items-list">
+		{#each filteredCountries as country, i}
+			<AutocompleteItem
+				itemLabel={country}
+				highlighted={i === hiLiteIndex}
+				on:click={() => setInputVal(country)}
+			/>
+		{/each}
+	</ul>
+{/if}
 
 <style>
 	div.autocomplete {

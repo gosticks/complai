@@ -5,9 +5,12 @@
 	export let small: boolean = false;
 	export let fullWidth: boolean = false;
 	export let secondary: boolean = false;
+	export let disabled: boolean = false;
 </script>
 
-<button class={className} class:fullWidth class:secondary class:small on:click><slot /></button>
+<button class={className} {disabled} class:fullWidth class:secondary class:small on:click
+	><slot /></button
+>
 
 <style lang="scss">
 	button {
@@ -27,6 +30,11 @@
 		transition: all 0.2s var(--easing-default);
 
 		text-shadow: none !important;
+
+		&:disabled {
+			opacity: 0.3;
+			cursor: not-allowed;
+		}
 
 		&:hover  {
 			background-color: rgba(var(--color-primary-raw), 0.5);
