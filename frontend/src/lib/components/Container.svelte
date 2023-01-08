@@ -7,8 +7,10 @@
 	export let loading = false;
 </script>
 
-<div class={className ?? '' + ' container'} class:centered>
-	<slot />
+<div>
+	<div class={className ?? '' + ' container'} class:centered>
+		<slot />
+	</div>
 	{#if loading}
 		<div class="loading-overlay">
 			<Liquid />
@@ -43,7 +45,8 @@
 	.loading-overlay {
 		position: absolute;
 		top: 0;
-		left: 17%;
+		left: 0;
+		right: 0;
 		bottom: 0;
 
 		display: flex;
@@ -52,5 +55,6 @@
 		justify-content: center;
 
 		background-color: rgba(var(--color-background-raw), 0.8);
+		backdrop-filter: blur(5px);
 	}
 </style>

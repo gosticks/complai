@@ -83,7 +83,7 @@
 			transmitCompanyInfo()
 				.then(() => {})
 				.finally(() => {
-					//loading = false;
+					loading = false;
 				});
 			return;
 		}

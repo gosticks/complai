@@ -14,6 +14,9 @@
 		if (!email || !code) {
 			evt.preventDefault();
 			evt.stopPropagation();
+
+			localStorage.setItem('email', email ?? '');
+
 			return;
 		}
 	};
