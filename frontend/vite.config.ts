@@ -1,6 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import svg from '@poppanator/sveltekit-svg';
 import type { UserConfig } from 'vite';
+import autoprefixer from 'autoprefixer';
 
 const config: UserConfig = {
 	plugins: [
@@ -20,7 +21,12 @@ const config: UserConfig = {
 				]
 			}
 		})
-	]
+	],
+	css: {
+		postcss: {
+			plugins: [autoprefixer]
+		}
+	}
 };
 
 export default config;

@@ -50,7 +50,7 @@
 					<img src="/nicholas.jpeg" />
 				</div>
 				<span>
-					<h3 class="name">Nicholas</h3>
+					<h3 class="name">Nicholas Trofin</h3>
 					<span>Flutter Dev</span>
 				</span>
 			</div>

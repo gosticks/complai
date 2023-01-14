@@ -7,12 +7,6 @@ Codepen: https://codepen.io/supah/
 
 -->
 <div>
-	<div class="wrapper">
-		<div class="ball" />
-		<div class="ball" />
-		<div class="ball" />
-	</div>
-
 	<svg>
 		<defs>
 			<filter id="filter">
@@ -27,6 +21,12 @@ Codepen: https://codepen.io/supah/
 			</filter>
 		</defs>
 	</svg>
+
+	<div class="wrapper">
+		<div class="ball" />
+		<div class="ball" />
+		<div class="ball" />
+	</div>
 </div>
 
 <style lang="scss">
@@ -34,7 +34,6 @@ Codepen: https://codepen.io/supah/
 	$radius: 80px;
 
 	svg {
-		display: none;
 	}
 
 	.wrapper {
@@ -44,6 +43,7 @@ Codepen: https://codepen.io/supah/
 		width: 300px;
 		height: 300px;
 		filter: url('#filter');
+		-webkit-filter: url('#filter');
 	}
 
 	.ball {
